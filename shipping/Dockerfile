@@ -1,7 +1,7 @@
 #
 # Build
 #
-FROM maven:3.8.7-openjdk-8 AS build
+FROM maven:3.8.6-openjdk-8 AS build
 
 # RUN apt-get update && apt-get -y install maven
 

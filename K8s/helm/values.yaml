@@ -1,7 +1,7 @@
 # Registry and repository for Docker images
 # Default is docker/robotshop/image:latest
 image:
-  repo: robotshop
+  repo: ""
   version: latest
   pullPolicy: IfNotPresent
 
@@ -17,7 +17,7 @@ psp:
   enabled: false
 
 # For the mini ones minikube, minishift set to true
-nodeport: false
+nodeport: true
 
 # "special" Openshift. Set to true when deploying to any openshift flavour
 openshift: false
@@ -33,32 +33,42 @@ ocCreateRoute: false
 #   tolerations: []
 ######################################
 
-cart: {}
+# Enabled services
+web:
+  enabled: true
 
-catalogue: {}
+user:
+  enabled: true
 
-dispatch: {}
+cart:
+  enabled: true
 
-mongodb: {}
-
-mysql: {}
+catalogue:
+  enabled: true
 
 payment:
-  # Alternative payment gateway URL
-  # Default is https://www.paypal.com
-  gateway: null
-  #gateway: https://www.worldpay.com
+  enabled: true
+  gateway: null  # or your custom gateway
 
-rabbitmq: {}
+shipping:
+  enabled: true
 
-ratings: {}
+mongodb:
+  enabled: true
+
+# Disabled services
+dispatch:
+  enabled: false
+
+mysql:
+  enabled: false
+
+rabbitmq:
+  enabled: false
+
+ratings:
+  enabled: false
 
 redis:
-  # Storage class to use with redis statefulset.
+  enabled: false
   storageClassName: standard
-
-shipping: {}
-
-user: {}
-
-web: {}
